@@ -1,0 +1,17 @@
+<!--Extension of template file-->
+{% extends 'base.html' %}
+
+{% block title %} Query Window {% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Run Query</h2>
+    <form action="" method="POST">
+        <div class="form-group">
+            <label>Query:</label>
+            <input type="text" class="form-control" name="statement" required="1"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Run Query</button>
+    </form>
+</div>
+{% endblock %}
