@@ -30,3 +30,5 @@ print(first_doubled)
 
 fullname_doubled = (fullname + ",") * 2
 print(fullname_doubled)
+
+print("New statement added without a mouse")
