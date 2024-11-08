@@ -3,6 +3,7 @@ import math
 
 class Bubble:
     def __init__(this,pos_x,pos_y,angle):
+        this.neighbors = []
         this.pos_x = pos_x
         this.pos_y = pos_y
         this.angle = angle
@@ -21,7 +22,7 @@ class Bubble:
         elif this.pos_x >= width:
             this.angle -= 90
         
-    def check_top(this,height):
+    def check_top(this):
         if this.pos_y <= 0:
             this.moving = False
     

@@ -39,7 +39,7 @@ while True:
     for bub in bubbles:
         if bub.moving == True:
             bub.check_sides(500)
-            bub.check_top(600)
+            bub.check_top()
             bub.update_pos()
         pygame.draw.circle(window,bub.get_color(),(bub.pos_x,bub.pos_y),25,25)
             
