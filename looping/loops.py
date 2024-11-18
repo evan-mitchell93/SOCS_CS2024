@@ -40,5 +40,5 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit(0)
-    
+    pygame.draw.circle(window,(255,255,0),(100,100),10,10)
     pygame.display.flip()
