@@ -13,14 +13,10 @@ window = pygame.display.set_mode((500,500))
 pygame.display.set_caption('CS SHAPES')
 clock = pygame.time.Clock()
 
-#auto movement
-ydirection = -1
-xdirection = 1
+circles = [] #list used to keep track of multiple circles
 first_circle = Circle(10,250)
-circles = [] #how do we represent a circle? List of lists? Other collection? Class?
-circles.append(first_circle)
-second_circle = Circle(300,25)
-circles.append(second_circle)
+circles.append(first_circle) #add the circle to our list
+circles.append(Circle(300,27)) # we can also define a new circle in the append
 
 while True:
     window.fill((100,100,100))
@@ -28,21 +24,14 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit(0)
-    
+
     #Determine if the boundary has been reached
-    #Move this into a function (Friday)
-    #Keep track of circle data independently (multiple circles)
+    #circles is a collection that we can loop over
     for c in circles:
-        if c.y <= 0 or c.y >= 500:
-            ydirection *= -1
-            
-        if c.x <= 0 or c.x >= 500:
-            xdirection *= -1
-
-        #Independent x and y direction variables
-        c.y += ydirection
-        c.x += xdirection
-
+        c.check_boundary()
+        #update our x and y values with directional variables
+        c.y += c.y_dir
+        c.x += c.x_dir
         pygame.draw.circle(window,c.color,(c.x,c.y),10)
     pygame.display.flip()
     clock.tick(120)
