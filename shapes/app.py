@@ -14,7 +14,7 @@ pygame.display.set_caption('CS SHAPES')
 clock = pygame.time.Clock()
 
 circles = [] #list used to keep track of multiple circles
-first_circle = Circle(10,250)
+first_circle = Circle(10,250) # define a circle
 circles.append(first_circle) #add the circle to our list
 circles.append(Circle(300,27)) # we can also define a new circle in the append
 
@@ -24,6 +24,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit(0)
+        #Add a new circle once spacebar is released
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_SPACE:
+                circles.append(Circle(random.randint(50,450),random.randint(50,450)))
 
     #Determine if the boundary has been reached
     #circles is a collection that we can loop over
