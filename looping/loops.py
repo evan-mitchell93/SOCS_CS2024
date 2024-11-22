@@ -11,34 +11,17 @@ while x < 10:
 y = 10
 while y > 0:
     #print(y)
-    y = y - 1
+    y = y + 1 #creates infinite loop
 
 
 
-#For Loop
+#For Loops iterate over a collection
+#The range function returns a list of numbers between start and stop
+#The third argument is the step value between each number
+
 for r in range(0,10,2):
     print(r)
 
 for j in range(10,0,-2):
     print(j)
 
-
-#Pygame use case
-import pygame
-import sys
-
-pygame.init()
-
-window = pygame.display.set_mode((400,600))
-
-pygame.display.set_caption('CS24-25')
-
-
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit(0)
-    pygame.draw.circle(window,(255,255,0),(100,100),10,10)
-    pygame.display.flip()
