@@ -5,6 +5,7 @@ import pygame
 import sys
 import random
 from circle import Circle
+from rectangle import Rectangle
 
 pygame.init()
 
@@ -13,10 +14,17 @@ window = pygame.display.set_mode((500,500))
 pygame.display.set_caption('CS SHAPES')
 clock = pygame.time.Clock()
 
+####Put circle class here if one file
+
+
 circles = [] #list used to keep track of multiple circles
 first_circle = Circle(10,250) # define a circle
 circles.append(first_circle) #add the circle to our list
 circles.append(Circle(300,27)) # we can also define a new circle in the append
+
+rectangles = []
+first_rectangle = Rectangle(10,10,25,50)
+rectangles.append(first_rectangle)
 
 while True:
     window.fill((100,100,100))
@@ -36,6 +44,12 @@ while True:
         #update our x and y values with directional variables
         c.y += c.y_dir
         c.x += c.x_dir
-        pygame.draw.circle(window,c.color,(c.x,c.y),10)
+        pygame.draw.circle(window,c.color,(c.x,c.y),c.radius)
+
+    for r in rectangles:
+        r.check_boundary()
+        r.y += r.y_dir
+        r.x += r.x_dir
+        pygame.draw.rect(window,r.color,(r.x,r.y,r.width,r.length))
     pygame.display.flip()
     clock.tick(120)

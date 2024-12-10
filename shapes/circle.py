@@ -15,6 +15,7 @@ class Circle:
         #randomly generate the direction values
         self.x_dir = random.choice([-1,1])
         self.y_dir = random.choice([-1,1])
+        self.radius = random.randint(10,75)
 
     #Move our boundary check into the class.
     def check_boundary(self):
