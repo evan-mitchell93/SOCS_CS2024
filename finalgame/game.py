@@ -29,7 +29,7 @@ def check_collision(bubble,list_of_bubbles):
                 #that way we can delete sets of 3 or more. The problem is going to be
                 #finding out how we would like to connect two separate neighbors
                 #without looping through the entire set of bubbles every iteration.
-                if(bubble.color == bub.color):
+                if(bubble.get_color() == bub.get_color()):
                     bub.neighbors.append(bubble)
                     for neighbor in bub.neighbors:
                         if neighbor != bubble:
@@ -70,7 +70,7 @@ while True:
             bub.check_top()
             bub.update_pos()
         pygame.draw.circle(window,bub.get_color(),(bub.pos_x,bub.pos_y),25,2)
-        
+
     #draw our aiming line    
     pygame.draw.line(window,(0,255,255),(shoot_x,shoot_y),(shoot_x - math.sin(shoot_angle) * 30, shoot_y + math.cos(shoot_angle) * 30),2)
     pygame.display.flip()

@@ -3,15 +3,18 @@ import math
 
 class Bubble:
     colors = [(255,0,0),(0,255,0),(0,0,255)]
+
     def __init__(this,pos_x,pos_y,angle):
         this.neighbors = []
         this.pos_x = pos_x
         this.pos_y = pos_y
         this.angle = angle
         this.moving = False
+
         #generate a random color
         this.color = random.choice(this.colors)
         this.neighbors = [this]
+        
     def update_pos(this):
         if this.moving == True:
             this.pos_x = this.pos_x - math.sin(this.angle) * 2
